@@ -1,0 +1,38 @@
+//Öröklődés
+%btn{
+
+    display: inline-block;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin: 0;
+    transition: 0.2s;
+
+    &:hover{
+
+        transform: scale(0.98);
+        
+
+    }
+}
+
+.btn-primary{
+
+    @extend %btn;
+    @include set-background(lighten($primary-color, 10%));
+
+    &:hover{
+
+        @include set-background(darken($primary-color, 10%));
+    }
+}
+
+.btn-secondary{
+
+    @extend %btn;
+    @include set-background($secondary-color);
+
+    &:hover{
+
+        @include set-background(darken($secondary-color, 5%));
+    }
+}

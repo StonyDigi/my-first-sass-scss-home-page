@@ -1,0 +1,27 @@
+//Változók, függvény, mixin
+
+//Vegyünk fel változókat a különböző formázásokhoz
+$font: Arial, Helvetica, sans-serif;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+$light-color: #f4f4f4;
+
+//Háttérszín vizsgálata és ehhez passzoló betűszín beállítása függvénnyel
+@function set-text-color($bgcolor){
+
+    @if(lightness($bgcolor) > 70){
+
+        @return #222;
+    }
+    @else{
+
+        @return #fff;
+    }
+}
+
+//Függvény meghívása -> Egyszerre akarjuk állítani a háttér és betűszínt
+@mixin set-background($color){
+
+    background-color: $color;
+    color: set-text-color($color);
+}
